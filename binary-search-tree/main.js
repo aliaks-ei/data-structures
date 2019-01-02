@@ -31,6 +31,28 @@
             }
         }
 
+        depthFirstTraversal(iteratorFunc, order) {
+            if (order === 'pre-order') {
+                iteratorFunc(this.value);
+            }
+
+            if (this.left) {
+                this.left.depthFirstTraversal(iteratorFunc, order)
+            }
+
+            if (order === 'in-order') {
+                iteratorFunc(this.value);
+            }
+
+            if (this.right) {
+                this.right.depthFirstTraversal(iteratorFunc, order);
+            }
+
+            if (order === 'post-order') {
+                iteratorFunc(this.value);
+            }
+        }
+
         insert(value) {
             if (value <= this.value) {
                 if (!this.left) {
@@ -59,7 +81,12 @@
     bst.insert(45);
     bst.insert(60);
     bst.insert(100);
+    bst.insert(10);
+    bst.insert(35);
+    bst.insert(59);
+    bst.insert(85);
+    bst.insert(105);
 
-    console.log(bst.contains(20));
+    bst.depthFirstTraversal(console.log, 'post-order');
 
 })();
