@@ -6,6 +6,26 @@
             this.numBuckets = size;
         }
 
+        get(key) {
+            let index = this.hash(key);
+
+            if (!this.buckets[index]) {
+                return null;
+            }
+
+            let currentNode = this.buckets[index];
+
+            while (currentNode) {
+                if (currentNode.key === key) {
+                    return currentNode.value;
+                }
+                
+                currentNode = currentNode.next;
+            }
+
+            return null;
+        }
+
         hash(key) {
             let total = 0;
             let keyLength = key.length;
@@ -58,7 +78,8 @@
     myHT.insert('Dean', 'dean@gmail.com');
     myHT.insert('Megan', 'megan@gmail.com');
     myHT.insert('Dane', 'dane@gmail.com');
+    myHT.insert('Dean', 'deansmith@yahoo.com');
 
-    console.log(myHT.buckets);
+    console.log(myHT.get('Dean'));
 
 })();
