@@ -63,6 +63,22 @@
                 currentNode.next = new HashNode(key, value);
             }
         }
+
+        retrieveAll() {
+            let allNodes = [];
+            
+            for (let i = 0; i < this.numBuckets; i++) {
+                let currentNode = this.buckets[i];
+
+                while (currentNode) {
+                    allNodes.push(currentNode);
+
+                    currentNode = currentNode.next;
+                }
+            }
+
+            return allNodes;
+        }
     }
 
     class HashNode {
@@ -80,6 +96,6 @@
     myHT.insert('Dane', 'dane@gmail.com');
     myHT.insert('Dean', 'deansmith@yahoo.com');
 
-    console.log(myHT.get('Dean'));
+    console.log(myHT.retrieveAll());
 
 })();
