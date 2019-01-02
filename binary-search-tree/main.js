@@ -31,6 +31,24 @@
             }
         }
 
+        breadthFirstTraversal(iteratorFunc) {
+            let queue = [ this ];
+
+            while (queue.length) {
+                let treeNode = queue.shift();
+
+                iteratorFunc(treeNode.value);
+
+                if (treeNode.left) {
+                    queue.push(treeNode.left);
+                }
+
+                if (treeNode.right) {
+                    queue.push(treeNode.right);
+                }
+            }
+        }
+
         depthFirstTraversal(iteratorFunc, order) {
             if (order === 'pre-order') {
                 iteratorFunc(this.value);
@@ -51,6 +69,22 @@
             if (order === 'post-order') {
                 iteratorFunc(this.value);
             }
+        }
+
+        getMaxVal() {
+            if (this.right) {
+                return this.right.getMaxVal();
+            }
+
+            return this.value;
+        }
+
+        getMinVal() {
+            if (this.left) {
+                return this.left.getMinVal();
+            }
+            
+            return this.value;
         }
 
         insert(value) {
@@ -87,6 +121,13 @@
     bst.insert(85);
     bst.insert(105);
 
+    console.log('=== Depth First Traversal ===');
     bst.depthFirstTraversal(console.log, 'post-order');
+
+    console.log('=== Breadth First Traversal ===');
+    bst.breadthFirstTraversal(console.log);
+
+    console.log('Min value: ', bst.getMinVal());
+    console.log('Max value: ', bst.getMaxVal());
 
 })();
