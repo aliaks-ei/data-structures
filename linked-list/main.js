@@ -31,6 +31,58 @@
 
             this.tail = newNode;
         }
+
+        removeHead() {
+            if (!this.head) {
+                return null;
+            }
+
+            let curHeadValue = this.head.value;
+
+            this.head = this.head.next;
+
+            if (this.head) {
+                this.head.prev = null;
+            }
+            else {
+                this.tail = null;
+            }
+
+            return curHeadValue;
+        }
+
+        removeTail() {
+            if (!this.tail) {
+                return null;
+            }
+
+            let curTailValue = this.tail.value;
+
+            this.tail = this.tail.prev;
+
+            if (this.tail) {
+                this.tail.next = null;
+            }
+            else {
+                this.head = null;
+            }
+
+            return curTailValue;
+        }
+
+        search(searchValue) {
+            let currentNode = this.head;
+
+            while (currentNode) {
+                if (currentNode.value === searchValue) {
+                    return currentNode.value;
+                }
+
+                currentNode = currentNode.next;
+            }
+
+            return null;
+        }
     }
 
     class Node {
