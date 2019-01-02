@@ -32,6 +32,24 @@
             this.tail = newNode;
         }
 
+        indexOf(value) {
+            let currentNode  = this.head;
+            let currentIndex = 0;
+
+            let indexes = [];
+
+            while(currentNode) {
+                if (currentNode.value === value) {
+                    indexes.push(currentIndex);
+                }
+
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+
+            return indexes;
+        }
+
         removeHead() {
             if (!this.head) {
                 return null;
@@ -96,7 +114,10 @@
     let ll = new LinkedList();
 
     ll.addToHead(100);
-    ll.addToTail(200);
+    ll.addToHead(200);
+    ll.addToHead(300);
+    ll.addToHead(200);
+    ll.addToTail(666);
 
     console.log(ll);
 })();
