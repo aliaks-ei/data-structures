@@ -1,0 +1,12 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "A collection of the most famous data structures implemented in Javascript",
+  "author": "Alexey Mozheyko",
+  "scripts": {
+    "test:unit": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
