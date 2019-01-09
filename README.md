@@ -1,2 +1,3 @@
 # Data structures on Javascript
-Implementation of the data structures on Javascript
+
+A collection of the most famous data structures implemented in Javascript
