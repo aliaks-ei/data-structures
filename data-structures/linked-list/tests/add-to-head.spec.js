@@ -1,39 +1,39 @@
 const LinkedList = require('../linked-list');
 
-/** Test cases on addToTail() method */
-describe('Linked list: addToTail() method', () => {
-    test('adds 6, 11, -2 consequiently to the tail of the list', () => {
+/** Test cases on addToHead() method */
+describe('Linked list: addToHead() method', () => {
+    test('adds 1, 5, -7 consequiently to the tail of the list', () => {
         let ll = new LinkedList();
 
-        ll.addToTail(6);
-        ll.addToTail(11);
-        ll.addToTail(-2);
+        ll.addToHead(1);
+        ll.addToHead(5);
+        ll.addToHead(-7);
 
-        expect(ll.tail.value).toBe(-2);
-        expect(ll.tail.next).toBe(null);
-        expect(ll.tail.prev.value).toBe(11);
-        
-        expect(ll.head.value).toBe(6);
+        expect(ll.head.value).toBe(-7);
         expect(ll.head.prev).toBe(null);
-        expect(ll.head.next.value).toBe(11);
+        expect(ll.head.next.value).toBe(5);
 
+        expect(ll.tail.value).toBe(1);
+        expect(ll.tail.next).toBe(null);
+        expect(ll.tail.prev.value).toBe(5);
+        
         expect(ll.getSize()).toBe(3);
     });
 
     test('adds nothing if no value passed', () => {
         let ll = new LinkedList();
 
-        ll.addToTail(0);
-        ll.addToTail(34);
-        ll.addToTail();
+        ll.addToHead(-22);
+        ll.addToHead('hello');
+        ll.addToHead();
 
-        expect(ll.tail.value).toBe(34);
-        expect(ll.tail.next).toBe(null);
-        expect(ll.tail.prev.value).toBe(0);
-
-        expect(ll.head.value).toBe(0);
+        expect(ll.head.value).toBe('hello');
         expect(ll.head.prev).toBe(null);
-        expect(ll.head.next.value).toBe(34);
+        expect(ll.head.next.value).toBe(-22);
+
+        expect(ll.tail.value).toBe(-22);
+        expect(ll.tail.next).toBe(null);
+        expect(ll.tail.prev.value).toBe('hello');
 
         expect(ll.getSize()).toBe(2);
     });
