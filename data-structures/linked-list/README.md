@@ -1,7 +1,5 @@
 # Linked list
 
-## Description
-
 A doubly linked list is a linked data structure that consists of a set of sequentially linked records called nodes. Each node contains its value and two fields, called links, that are references to the previous and to the next node in the sequence of nodes.  
   
 A doubly linked list implemented here has following methods:
