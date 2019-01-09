@@ -10,6 +10,6 @@ A doubly linked list implemented here has following methods:
   - **_getSize()_** - returns the size of the list.
   - **_getTail()_** - returns the node at the _tail_ of the list.
   - **_indexOf(value)_** - finds an index (or indexes in case of multiple items have the same value) of ```value```. Returns the index(es);
-  - **_removeHead()_** - removes the current _head_ from the list. Returns the value of removed _head_. 
-  - **_removeTail()_** - removes the current _tail_ from the list. Returns the value of removed _tail_.
+  - **_removeHead()_** - removes the current _head_ from the list. Returns the value of the new _head_. 
+  - **_removeTail()_** - removes the current _tail_ from the list. Returns the value of the new _tail_.
   - **_search(searchValue)_** - searches for a node with specified ```searchValue```. Return the value of node (or null if the node wasn't found).

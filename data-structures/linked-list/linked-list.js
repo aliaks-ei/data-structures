@@ -1,3 +1,13 @@
+/** Constructor for Node */
+class Node {
+    constructor(value, next, prev) {
+        this.value = value;
+        this.next  = next;
+        this.prev  = prev;
+    }
+}
+
+/** Constructor for Linked list */
 class LinkedList {
     constructor() {
         this.head = null;
@@ -5,6 +15,8 @@ class LinkedList {
     }
 
     addToHead(value) {
+        if (value === undefined) return;
+
         let newNode = new Node(value, this.head, null);
 
         if (this.head) {
@@ -18,6 +30,8 @@ class LinkedList {
     }
 
     addToTail(value) {
+        if (value === undefined) return;
+
         let newNode = new Node(value, null, this.tail);
 
         if (this.tail) {
@@ -131,14 +145,6 @@ class LinkedList {
         }
 
         return null;
-    }
-}
-
-class Node {
-    constructor(value, next, prev) {
-        this.value = value;
-        this.next  = next;
-        this.prev  = prev;
     }
 }
 
