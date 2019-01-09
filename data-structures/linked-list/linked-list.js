@@ -30,6 +30,39 @@ class LinkedList {
         this.tail = newNode;
     }
 
+    getHead() {
+        let headValue = null;
+
+        if (this.head) {
+            headValue = this.head.value;
+        }
+
+        return headValue;
+    }
+
+    getSize() {
+        let currentNode = this.head;
+        let size = 0;
+
+        while (currentNode) {
+            size++;
+
+            currentNode = currentNode.next;
+        }
+
+        return size;
+    }
+
+    getTail() {
+        let tailValue = null;
+
+        if (this.tail) {
+            tailValue = this.tail.value;
+        }
+
+        return tailValue;
+    }
+
     indexOf(value) {
         let currentNode  = this.head;
         let currentIndex = 0;
