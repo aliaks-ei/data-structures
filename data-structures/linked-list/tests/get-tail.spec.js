@@ -2,7 +2,7 @@ const LinkedList = require('../linked-list');
 
 /** Test cases on getTail() method */
 describe('Linked list: getTail() method', () => {
-    test('adds some items to the list and shows current head', () => {
+    test('adds some items to the list and shows current tail', () => {
         let ll = new LinkedList();
 
         ll.addToTail(undefined);
