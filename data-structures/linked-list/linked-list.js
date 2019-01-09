@@ -1,123 +1,112 @@
-(function () {
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+    }
 
-    class LinkedList {
-        constructor() {
-            this.head = null;
-            this.tail = null;
+    addToHead(value) {
+        let newNode = new Node(value, this.head, null);
+
+        if (this.head) {
+            this.head.prev = newNode;
         }
-
-        addToHead(value) {
-            let newNode = new Node(value, this.head, null);
-
-            if (this.head) {
-                this.head.prev = newNode;
-            }
-            else {
-                this.tail = newNode;
-            }
-
-            this.head = newNode;
-        }
-
-        addToTail(value) {
-            let newNode = new Node(value, null, this.tail);
-
-            if (this.tail) {
-                this.tail.next = newNode;
-            }
-            else {
-                this.head = newNode;
-            }
-
+        else {
             this.tail = newNode;
         }
 
-        indexOf(value) {
-            let currentNode  = this.head;
-            let currentIndex = 0;
+        this.head = newNode;
+    }
 
-            let indexes = [];
+    addToTail(value) {
+        let newNode = new Node(value, null, this.tail);
 
-            while(currentNode) {
-                if (currentNode.value === value) {
-                    indexes.push(currentIndex);
-                }
-
-                currentNode = currentNode.next;
-                currentIndex++;
-            }
-
-            return indexes;
+        if (this.tail) {
+            this.tail.next = newNode;
+        }
+        else {
+            this.head = newNode;
         }
 
-        removeHead() {
-            if (!this.head) {
-                return null;
+        this.tail = newNode;
+    }
+
+    indexOf(value) {
+        let currentNode  = this.head;
+        let currentIndex = 0;
+
+        let indexes = [];
+
+        while(currentNode) {
+            if (currentNode.value === value) {
+                indexes.push(currentIndex);
             }
 
-            let curHeadValue = this.head.value;
-
-            this.head = this.head.next;
-
-            if (this.head) {
-                this.head.prev = null;
-            }
-            else {
-                this.tail = null;
-            }
-
-            return curHeadValue;
+            currentNode = currentNode.next;
+            currentIndex++;
         }
 
-        removeTail() {
-            if (!this.tail) {
-                return null;
-            }
+        return indexes;
+    }
 
-            let curTailValue = this.tail.value;
-
-            this.tail = this.tail.prev;
-
-            if (this.tail) {
-                this.tail.next = null;
-            }
-            else {
-                this.head = null;
-            }
-
-            return curTailValue;
-        }
-
-        search(searchValue) {
-            let currentNode = this.head;
-
-            while (currentNode) {
-                if (currentNode.value === searchValue) {
-                    return currentNode.value;
-                }
-
-                currentNode = currentNode.next;
-            }
-
+    removeHead() {
+        if (!this.head) {
             return null;
         }
-    }
 
-    class Node {
-        constructor(value, next, prev) {
-            this.value = value;
-            this.next  = next;
-            this.prev  = prev;
+        let curHeadValue = this.head.value;
+
+        this.head = this.head.next;
+
+        if (this.head) {
+            this.head.prev = null;
         }
+        else {
+            this.tail = null;
+        }
+
+        return curHeadValue;
     }
 
-    let ll = new LinkedList();
+    removeTail() {
+        if (!this.tail) {
+            return null;
+        }
 
-    ll.addToHead(100);
-    ll.addToHead(200);
-    ll.addToHead(300);
-    ll.addToHead(200);
-    ll.addToTail(666);
+        let curTailValue = this.tail.value;
 
-    console.log(ll);
-})();
+        this.tail = this.tail.prev;
+
+        if (this.tail) {
+            this.tail.next = null;
+        }
+        else {
+            this.head = null;
+        }
+
+        return curTailValue;
+    }
+
+    search(searchValue) {
+        let currentNode = this.head;
+
+        while (currentNode) {
+            if (currentNode.value === searchValue) {
+                return currentNode.value;
+            }
+
+            currentNode = currentNode.next;
+        }
+
+        return null;
+    }
+}
+
+class Node {
+    constructor(value, next, prev) {
+        this.value = value;
+        this.next  = next;
+        this.prev  = prev;
+    }
+}
+
+module.exports = LinkedList;
