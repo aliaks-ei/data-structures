@@ -4,7 +4,7 @@ A [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) is a bi
   
 A binary search tree (BST) implemented here has following methods:
 
-  - **_contains(value)_** - checks whether BST contains given ```value``` or not. Returns boolean value. 
+  - **_contains(value)_** - checks whether BST contains given ```value``` or not. Returns boolean. 
   - **_breadthFirstTraversal()_** - traverses through one entire level of children nodes first, then moving on to traverse through the grandchildren nodes and so on. Logs all nodes to the console.
   - **_depthFirstTraversal(order)_** - traverses through all nodes according to the ```order``` parameter and logs them to the console. Possible values of ```order``` are:
     1. _in-order_ - starts traversing the tree from the top and follows every branch down to its bottom before moves on to the next branch.
