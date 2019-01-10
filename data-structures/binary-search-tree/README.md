@@ -6,10 +6,10 @@ A binary search tree (BST) implemented here has following methods:
 
   - **_contains(value)_** - checks whether BST contains given ```value``` or not. Returns boolean. 
   - **_breadthFirstTraversal()_** - traverses through one entire level of children nodes first, then moving on to traverse through the grandchildren nodes and so on. Logs all nodes to the console.
-  - **_depthFirstTraversal(order)_** - traverses through all nodes according to the ```order``` parameter and logs them to the console. Possible values of ```order``` are:
-    1. _in-order_ - starts traversing the tree from the top and follows every branch down to its bottom before moves on to the next branch.
+  - **_depthFirstTraversal(order)_** - traverses through all nodes according to the ```order``` parameter and logs them to the console. Possible values of the ```order``` are:
+    1_in-order_ - starts traversing the tree from the top and follows every branch down to its bottom before moves on to the next branch.
     2. _pre-order_ - starts traversing the tree from the top, then goes down the left branch and then goes down the right branch.
-    3. _post-order_ - traverses through all of the left children, then all the right children and then the parent node.
+    3 _post-order_ - traverses through all of the left children, then all the right children and then the parent node.
   - **_getMaxVal()_** - returns the maximum value of the BST.
   - **_getMinVal()_** - returns the minimum value of the BST .
   - **_insert(value)_** - insert given ```value``` into the BST according to the rules.
