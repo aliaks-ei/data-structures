@@ -21,9 +21,10 @@ describe('Linked list: indexOf() method', () => {
         expect(ll.indexOf(99)).toEqual([ 1 ]);
     });
 
-    test('index of value 50 should be 2', () => {
+    test('indexes of value 50 should be [2, 4]', () => {
         let ll = new LinkedList();
 
+        ll.addToHead(50);
         ll.addToHead(40);
         ll.addToTail(60);
         ll.addToTail(70);
@@ -36,8 +37,9 @@ describe('Linked list: indexOf() method', () => {
         ll.removeHead();
         ll.removeTail();
 
-        expect(ll.indexOf(50)).toEqual([ 2 ]);
+        expect(ll.indexOf(50)).toEqual([ 2, 4 ]);
     });
+    
 
     test('should return empty array (value not found in the list)', () => {
         let ll = new LinkedList();
