@@ -1,6 +1,21 @@
-/** Constructor for Node */
-class Node {
-  constructor(value, next, prev) {
+interface ILinkedList {
+  addToHead(value?: unknown): void;
+  addToTail(value?: unknown): void;
+  getHead(): unknown;
+  getSize(): number;
+  getTail(): unknown;
+  indexOf(value: unknown): number[];
+  removeHead(): unknown;
+  removeTail(): unknown;
+}
+
+/** Constructor for List Node */
+class ListNode {
+  public value: unknown;
+  public next: ListNode | null;
+  public prev: ListNode | null;
+
+  constructor(value: unknown, next: ListNode | null, prev: ListNode | null) {
     this.value = value;
     this.next  = next;
     this.prev  = prev;
@@ -8,16 +23,19 @@ class Node {
 }
 
 /** Constructor for Linked list */
-class LinkedList {
+class LinkedList implements ILinkedList {
+  private head: ListNode | null;
+  private tail: ListNode | null;
+
   constructor() {
     this.head = null;
     this.tail = null;
   }
 
-  addToHead(value) {
+  public addToHead(value?: unknown) {
     if (value === undefined) return;
 
-    const newNode = new Node(value, this.head, null);
+    const newNode = new ListNode(value, this.head, null);
 
     if (this.head) {
       this.head.prev = newNode;
@@ -29,10 +47,10 @@ class LinkedList {
     this.head = newNode;
   }
 
-  addToTail(value) {
+  public addToTail(value?: unknown) {
     if (value === undefined) return;
 
-    const newNode = new Node(value, null, this.tail);
+    const newNode = new ListNode(value, null, this.tail);
 
     if (this.tail) {
       this.tail.next = newNode;
@@ -44,7 +62,7 @@ class LinkedList {
     this.tail = newNode;
   }
 
-  getHead() {
+  public getHead() {
     let headValue = null;
 
     if (this.head) {
@@ -54,7 +72,7 @@ class LinkedList {
     return headValue;
   }
 
-  getSize() {
+  public getSize() {
     let currentNode = this.head;
     let size = 0;
 
@@ -67,7 +85,7 @@ class LinkedList {
     return size;
   }
 
-  getTail() {
+  public getTail() {
     let tailValue = null;
 
     if (this.tail) {
@@ -77,7 +95,7 @@ class LinkedList {
     return tailValue;
   }
 
-  indexOf(value) {
+  public indexOf(value: unknown) {
     let currentNode  = this.head;
     let currentIndex = 0;
 
@@ -95,7 +113,7 @@ class LinkedList {
     return indexes;
   }
 
-  removeHead() {
+  public removeHead() {
     if (!this.head) {
       return null;
     }
@@ -114,7 +132,7 @@ class LinkedList {
     return curHeadValue;
   }
 
-  removeTail() {
+  public removeTail() {
     if (!this.tail) {
       return null;
     }
@@ -133,7 +151,7 @@ class LinkedList {
     return curTailValue;
   }
 
-  search(searchValue) {
+  public search(searchValue: unknown) {
     let currentNode = this.head;
 
     while (currentNode) {
@@ -148,4 +166,4 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+export default LinkedList;

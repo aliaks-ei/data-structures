@@ -1,4 +1,4 @@
-const LinkedList = require('../linked-list');
+import LinkedList from '../linked-list';
 
 /** Test cases on search() method */
 describe('Linked list: search() method', () => {

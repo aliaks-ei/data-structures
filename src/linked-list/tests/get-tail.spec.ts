@@ -1,4 +1,4 @@
-const LinkedList = require('../linked-list');
+import LinkedList from '../linked-list';
 
 /** Test cases on getTail() method */
 describe('Linked list: getTail() method', () => {
