@@ -1,4 +1,4 @@
-const BST = require('../binary-search-tree');
+import BST from '..';
 
 /** Test suites on contains() method */
 describe('Binary search tree: contains() method', () => {

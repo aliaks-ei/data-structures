@@ -1,4 +1,4 @@
-const LinkedList = require('../linked-list');
+import LinkedList from '..';
 
 /** Test cases on removeHead() method */
 describe('Linked list: removeHead() method', () => {

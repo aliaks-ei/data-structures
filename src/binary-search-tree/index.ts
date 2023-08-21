@@ -1,12 +1,31 @@
-class BST {
-  constructor(value) {
+type DepthFirstTraversalOrder = 'pre-order' | 'in-order' | 'post-order';
+
+interface IBinarySearchTree {
+  contains(value?: number): boolean;
+  breadthFirstTraversal(): void;
+  depthFirstTraversal(order: DepthFirstTraversalOrder): void;
+  getMaxVal(): number;
+  getMinVal(): number;
+  insert(value: number): void;
+}
+
+class BinarySearchTree implements IBinarySearchTree {
+  private value: number;
+  private left: BinarySearchTree | null;
+  private right: BinarySearchTree | null;
+
+  constructor(value: number) {
     this.value = value;
 
-    this.left  = null;
+    this.left = null;
     this.right = null;
   }
 
-  contains(value) {
+  public contains(value?: number): boolean {
+    if (!value) {
+      return false;
+    }
+
     if (this.value === value) {
       return true;
     }
@@ -27,25 +46,25 @@ class BST {
     }
   }
 
-  breadthFirstTraversal() {
-    const queue = [this];
+  public breadthFirstTraversal() {
+    const queue = [this] as BinarySearchTree[];
 
     while (queue.length) {
       const treeNode = queue.shift();
 
-      console.log(treeNode.value);
+      console.log(treeNode?.value);
 
-      if (treeNode.left) {
+      if (treeNode?.left) {
         queue.push(treeNode.left);
       }
 
-      if (treeNode.right) {
+      if (treeNode?.right) {
         queue.push(treeNode.right);
       }
     }
   }
 
-  depthFirstTraversal(order) {
+  public depthFirstTraversal(order: DepthFirstTraversalOrder) {
     if (order === 'pre-order') {
       console.log(this.value);
     }
@@ -67,7 +86,7 @@ class BST {
     }
   }
 
-  getMaxVal() {
+  public getMaxVal(): number {
     if (this.right) {
       return this.right.getMaxVal();
     }
@@ -75,7 +94,7 @@ class BST {
     return this.value;
   }
 
-  getMinVal() {
+  public getMinVal(): number {
     if (this.left) {
       return this.left.getMinVal();
     }
@@ -83,10 +102,10 @@ class BST {
     return this.value;
   }
 
-  insert(value) {
+  public insert(value: number) {
     if (value <= this.value) {
       if (!this.left) {
-        this.left = new BST(value);
+        this.left = new BinarySearchTree(value);
       }
       else {
         this.left.insert(value);
@@ -94,7 +113,7 @@ class BST {
     }
     else {
       if (!this.right) {
-        this.right = new BST(value);
+        this.right = new BinarySearchTree(value);
       }
       else {
         this.right.insert(value);
@@ -103,4 +122,4 @@ class BST {
   }
 }
 
-module.exports = BST;
+export default BinarySearchTree;
