@@ -17,11 +17,11 @@ class BinarySearchTree implements IBinarySearchTree {
   constructor(value: number) {
     this.value = value;
 
-    this.left  = null;
+    this.left = null;
     this.right = null;
   }
 
-  contains(value?: number): boolean {
+  public contains(value?: number): boolean {
     if (!value) {
       return false;
     }
@@ -46,7 +46,7 @@ class BinarySearchTree implements IBinarySearchTree {
     }
   }
 
-  breadthFirstTraversal() {
+  public breadthFirstTraversal() {
     const queue = [this] as BinarySearchTree[];
 
     while (queue.length) {
@@ -64,7 +64,7 @@ class BinarySearchTree implements IBinarySearchTree {
     }
   }
 
-  depthFirstTraversal(order: DepthFirstTraversalOrder) {
+  public depthFirstTraversal(order: DepthFirstTraversalOrder) {
     if (order === 'pre-order') {
       console.log(this.value);
     }
@@ -86,7 +86,7 @@ class BinarySearchTree implements IBinarySearchTree {
     }
   }
 
-  getMaxVal(): number {
+  public getMaxVal(): number {
     if (this.right) {
       return this.right.getMaxVal();
     }
@@ -94,7 +94,7 @@ class BinarySearchTree implements IBinarySearchTree {
     return this.value;
   }
 
-  getMinVal(): number {
+  public getMinVal(): number {
     if (this.left) {
       return this.left.getMinVal();
     }
@@ -102,7 +102,7 @@ class BinarySearchTree implements IBinarySearchTree {
     return this.value;
   }
 
-  insert(value: number) {
+  public insert(value: number) {
     if (value <= this.value) {
       if (!this.left) {
         this.left = new BinarySearchTree(value);
