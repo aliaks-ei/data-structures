@@ -1,4 +1,4 @@
-import LinkedList from '../linked-list';
+import LinkedList from '..';
 
 /** Test cases on getSize() method */
 describe('Linked list: getSize() method', () => {

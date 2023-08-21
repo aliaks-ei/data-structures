@@ -1,4 +1,4 @@
-import LinkedList from '../linked-list';
+import LinkedList from '..';
 
 /** Test cases on removeTail() method */
 describe('Linked list: removeTail() method', () => {

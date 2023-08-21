@@ -1,4 +1,4 @@
-import LinkedList from '../linked-list';
+import LinkedList from '..';
 
 /** Test cases on getHead() method */
 describe('Linked list: getHead() method', () => {

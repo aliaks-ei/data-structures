@@ -1,4 +1,4 @@
-import LinkedList from '../linked-list';
+import LinkedList from '..';
 
 /** Test cases on addToTail() method */
 describe('Linked list: addToTail() method', () => {
