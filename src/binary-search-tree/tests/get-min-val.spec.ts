@@ -1,4 +1,4 @@
-const BST = require('../binary-search-tree');
+import BST from '..';
 
 /** Test suites on getMinVal() method */
 describe('Binary search tree: getMinVal() method', () => {
@@ -14,15 +14,15 @@ describe('Binary search tree: getMinVal() method', () => {
     expect(bst.getMinVal()).toBe(2);
   });
 
-  test('should return null as min value', () => {
+  test('should return 0 as min value', () => {
     const bst = new BST(3);
 
     bst.insert(6);
     bst.insert(900);
-    bst.insert(null);
+    bst.insert(0);
     bst.insert(1e8);
 
-    expect(bst.getMinVal()).toBe(null);
+    expect(bst.getMinVal()).toBe(0);
   });
 
   test('should return 1 as min value (BST contains only one value)', () => {
