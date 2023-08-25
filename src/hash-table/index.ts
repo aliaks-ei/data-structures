@@ -20,7 +20,7 @@ class HashTable implements IHashTable {
       total += key.charCodeAt(i);
     }
 
-    return total % this.size;
+    return total % this.table.length;
   }
 
   public get(key: string): unknown {
